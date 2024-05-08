@@ -22,7 +22,7 @@ export default function Price({ price, type }: Props) {
   if (type === PriceTypeEnum.STRIKE) {
     return (
       <span
-        className="font-medium text-sm line-through text-[--color-text-disabled]"
+        className="font-medium text-sm line-through text-[--color-gray-disabled]"
         aria-label="Precio anterior"
         data-testid="Precio"
       >

@@ -8,6 +8,7 @@ exports[`Product Card renders product card unchanged 1`] = `
   >
     <section
       aria-label="Cabecera de tarjeta de producto"
+      class="relative"
     >
       <img
         alt="Imagen del producto: Aceite de girasol Cocinero ecobotella 900 cc."
@@ -21,27 +22,73 @@ exports[`Product Card renders product card unchanged 1`] = `
         style="color: transparent;"
         width="300"
       />
+      <button
+        class="rounded-md p-2 flex items-center justify-center bg-[--color-primary] text-white w-full shadow-sm absolute w-fit rounded-md top-3 right-3"
+        type="button"
+      >
+        <a
+          class="flex flex-row gap-1"
+          href="https://www.carrefour.com.ar/aceite-de-girasol-cocinero-ecobotella-900-cc-732610/p"
+        >
+          <i>
+            <svg
+              aria-hidden="true"
+              fill="none"
+              height="20"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </i>
+        </a>
+      </button>
     </section>
     <section
-      class="Cuerpo con información de la tarjeta de producto"
+      aria-label="Cuerpo con información de la tarjeta de producto"
+      class="flex flex-col gap-1"
     >
       <h2
         aria-label="Título de producto"
+        class="font-medium"
       >
         Aceite de girasol Cocinero ecobotella 900 cc.
       </h2>
+      <div
+        class="flex gap-4 text-xs justify-between"
+      >
+        <span
+          class="uppercase"
+        >
+          carrefour
+        </span>
+        <span
+          class="uppercase"
+        >
+          Almacén
+        </span>
+      </div>
       <div
         class="flex gap-4"
       >
         <section
           class="flex gap-4 items-center justify-between w-full"
         >
-          <span>
+          <span
+            class="font-medium"
+          >
             Precio:
           </span>
           <span
             aria-label="Precio anterior"
-            class="font-medium text-sm line-through text-[--color-text-disabled]"
+            class="font-medium text-sm line-through text-[--color-gray-disabled]"
             data-testid="Precio"
           >
             $10.99
@@ -58,7 +105,22 @@ exports[`Product Card renders product card unchanged 1`] = `
     </section>
     <section
       aria-label="Pie de tarjeta de producto"
-    />
+      class="flex flex-col gap-1"
+    >
+      <button
+        class="rounded-md px-4 py-2 flex items-center justify-center bg-[--color-primary] text-white w-full shadow-sm undefined"
+        type="button"
+      >
+        <a
+          class="flex flex-row gap-1"
+          href="/product/1"
+        >
+          <span>
+            Ver estadísticas
+          </span>
+        </a>
+      </button>
+    </section>
   </article>
 </div>
 `;

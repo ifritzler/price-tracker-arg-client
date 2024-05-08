@@ -81,7 +81,15 @@ describe("Product Card", () => {
     const price = screen.getByLabelText("Precio anterior");
     const discount = screen.getByLabelText("Precio de promoción del producto");
 
-    expect(price.classList).toContain("text-[--color-text-disabled]");
+    expect(price.classList).toContain("text-[--color-gray-disabled]");
     expect(discount.classList).toContain("text-[--color-discount]");
+  });
+
+  it("should have two buttons", () => {
+    render(<ProductCard product={testProduct} />);
+
+    const button = screen.getAllByRole("button");
+
+    expect(button.length).toBe(2);
   });
 });

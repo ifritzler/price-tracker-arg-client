@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button check renders button unchanged: button 1`] = `
+<div>
+  <button
+    class="rounded-[20px] px-4 py-2 flex place-content-center bg-[--color-primary] shadow-sm w-full text-white undefined"
+    type="button"
+  >
+    Button
+  </button>
+</div>
+`;
+
+exports[`Button check renders button unchanged: link-button 1`] = `
+<div>
+  <button
+    class="rounded-md px-4 py-2 flex items-center justify-center bg-[--color-primary] text-white w-full shadow-sm undefined"
+    type="button"
+  >
+    <a
+      class="flex flex-row gap-1"
+      href="www.google.com"
+    >
+      <span>
+        Button
+      </span>
+    </a>
+  </button>
+</div>
+`;
