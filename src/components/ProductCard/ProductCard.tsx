@@ -14,12 +14,12 @@ export function ProductCard(props: Props) {
 
   return (
     <article
-      className="max-w-[--max-card-with] px-4 py-3 bg-[--background-card] rounded-2xl shadow-md transition-transform hover:scale-105 flex flex-col gap-4"
+      className="max-w-[--max-card-with] px-4 py-3 bg-[--background-card] rounded-2xl shadow-md transition-transform hover:scale-105 flex flex-col gap-2 justify-between"
       aria-label="Tarjeta de producto"
     >
       <section
         aria-label="Cabecera de tarjeta de producto"
-        className="relative"
+        className="relative flex flex-col gap-1"
       >
         <Image
           alt={`Imagen del producto: ${product.title}`}
@@ -36,14 +36,14 @@ export function ProductCard(props: Props) {
           onlyIcon
           className="absolute w-fit rounded-md top-3 right-3"
         />
+        <h2 aria-label="Título de producto" className="font-medium">
+          {product.title}
+        </h2>
       </section>
       <section
         aria-label="Cuerpo con información de la tarjeta de producto"
         className="flex flex-col gap-1"
       >
-        <h2 aria-label="Título de producto" className="font-medium">
-          {product.title}
-        </h2>
         <div className="flex gap-4 text-xs justify-between">
           <span className="uppercase">{product.supermarket.name}</span>
           <span className="uppercase">{product.category.name}</span>

@@ -81,7 +81,7 @@ describe("Product Card", () => {
     const price = screen.getByLabelText("Precio anterior");
     const discount = screen.getByLabelText("Precio de promoción del producto");
 
-    expect(price.classList).toContain("text-[--color-gray-disabled]");
+    expect(price.classList).toContain("text-[--color-text-disabled]");
     expect(discount.classList).toContain("text-[--color-discount]");
   });
 
