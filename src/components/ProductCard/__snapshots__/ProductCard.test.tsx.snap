@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product Card renders product card unchanged 1`] = `
+<div>
+  <article
+    aria-label="Tarjeta de producto"
+    class="max-w-[--max-card-with] px-4 py-3 bg-[--background-card] rounded-2xl shadow-md transition-transform hover:scale-105 flex flex-col gap-4"
+  >
+    <section
+      aria-label="Cabecera de tarjeta de producto"
+    >
+      <img
+        alt="Imagen del producto: Aceite de girasol Cocinero ecobotella 900 cc."
+        class="rounded-2xl"
+        data-nimg="1"
+        decoding="async"
+        height="300"
+        loading="lazy"
+        src="/_next/image?url=https%3A%2F%2Fcarrefourar.vtexassets.com%2Farquivos%2Fids%2F422953-1200-auto%3Fv%3D638373948257230000%26width%3D1200%26height%3Dauto%26aspect%3Dtrue&w=640&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fcarrefourar.vtexassets.com%2Farquivos%2Fids%2F422953-1200-auto%3Fv%3D638373948257230000%26width%3D1200%26height%3Dauto%26aspect%3Dtrue&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fcarrefourar.vtexassets.com%2Farquivos%2Fids%2F422953-1200-auto%3Fv%3D638373948257230000%26width%3D1200%26height%3Dauto%26aspect%3Dtrue&w=640&q=75 2x"
+        style="color: transparent;"
+        width="300"
+      />
+    </section>
+    <section
+      class="Cuerpo con información de la tarjeta de producto"
+    >
+      <h2
+        aria-label="Título de producto"
+      >
+        Aceite de girasol Cocinero ecobotella 900 cc.
+      </h2>
+      <div
+        class="flex gap-4"
+      >
+        <section
+          class="flex gap-4 items-center justify-between w-full"
+        >
+          <span>
+            Precio:
+          </span>
+          <span
+            aria-label="Precio anterior"
+            class="font-medium text-sm line-through text-[--color-text-disabled]"
+            data-testid="Precio"
+          >
+            $10.99
+          </span>
+          <span
+            aria-label="Precio de promoción del producto"
+            class="font-bold text-sm text-[--color-discount]"
+            data-testid="Precio"
+          >
+            $8.99
+          </span>
+        </section>
+      </div>
+    </section>
+    <section
+      aria-label="Pie de tarjeta de producto"
+    />
+  </article>
+</div>
+`;
