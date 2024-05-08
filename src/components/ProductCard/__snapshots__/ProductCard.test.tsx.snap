@@ -23,7 +23,7 @@ exports[`Product Card renders product card unchanged 1`] = `
         width="300"
       />
       <button
-        class="rounded-md p-2 flex items-center justify-center bg-[--color-primary] text-white shadow-sm absolute w-fit rounded-md top-3 right-3 false"
+        class="rounded-md p-2 flex items-center justify-center bg-[--color-primary] shadow-sm text-white absolute w-fit rounded-md top-3 right-3 false"
         icon="[object Object]"
         type="button"
         url="https://www.carrefour.com.ar/aceite-de-girasol-cocinero-ecobotella-900-cc-732610/p"
@@ -110,7 +110,7 @@ exports[`Product Card renders product card unchanged 1`] = `
       class="flex flex-col gap-1"
     >
       <button
-        class="rounded-md px-4 py-2 flex items-center justify-center bg-[--color-primary] text-white shadow-sm undefined w-full"
+        class="rounded-md px-4 py-2 flex items-center justify-center bg-[--color-primary] shadow-sm text-white undefined w-full"
         type="button"
         url="/product/1"
       >

@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Button from "./Button";
 
@@ -38,7 +38,18 @@ describe("Button", () => {
         render(<Button text="Button 1" typeb="button-link" url="www.google.com"/>);
         
         const button = screen.getByRole('link')
-    
+        
         expect(button).toHaveTextContent('Button 1')
+    })
+    
+    it("Behaviour button on click", () => {
+        const onClickMock = jest.fn();
+        render(<Button text="Button 1" typeb="button" onClick={onClickMock}/>);
+        
+        const button = screen.getByRole('button')
+        fireEvent.click(button)
+
+        expect(onClickMock).toHaveBeenCalled();
+        expect(onClickMock).toHaveBeenCalledTimes(1);
     })
 })

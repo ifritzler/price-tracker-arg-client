@@ -9,9 +9,9 @@ export default function HeroHeader() {
       aria-label="Accordion 1"
       subtitle="Toca para saber más"
       title={
-        <div className="text-3xl text-white flex flex-col gap-4">
-            <h1 className="text-4xl font-bold">Explora Góndolas 1.0</h1>
-            <span>Te cuento de que trata este proyecto!</span>
+        <div className="text-3xl flex flex-col gap-4">
+            <h1 className="text-4xl font-bold text-white light:text-black">Explora Góndolas 1.0</h1>
+            <span className="text-white light:text-black">Te cuento de que trata este proyecto!</span>
         </div>
       }
     >
