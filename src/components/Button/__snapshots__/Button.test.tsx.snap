@@ -3,7 +3,7 @@
 exports[`Button check renders button unchanged: button 1`] = `
 <div>
   <button
-    class="rounded-[20px] px-4 py-2 flex place-content-center bg-[--color-primary] shadow-sm w-full text-white undefined"
+    class="rounded-md px-4 py-2 flex items-center justify-center bg-[--color-primary] text-white shadow-sm undefined w-full"
     type="button"
   >
     Button
@@ -14,8 +14,9 @@ exports[`Button check renders button unchanged: button 1`] = `
 exports[`Button check renders button unchanged: link-button 1`] = `
 <div>
   <button
-    class="rounded-md px-4 py-2 flex items-center justify-center bg-[--color-primary] text-white w-full shadow-sm undefined"
+    class="rounded-md px-4 py-2 flex items-center justify-center bg-[--color-primary] text-white shadow-sm undefined w-full"
     type="button"
+    url="www.google.com"
   >
     <a
       class="flex flex-row gap-1"
