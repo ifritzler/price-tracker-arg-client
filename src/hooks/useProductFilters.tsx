@@ -1,15 +1,40 @@
-// useFilter.ts
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+"use client"
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
-export function useProductsFilters(defaultValue: boolean) {
+interface FilterProps {
+  discountValue: boolean;
+  increased: boolean;
+}
+
+export function useProductsFilters() {
   const router = useRouter();
-  const [filter, setFilter] = useState<boolean>(defaultValue);
+  const searchParams = useSearchParams();
 
-  const updateFilter = (value: boolean) => {
-    setFilter(value);
-    router.push(`?${value ? `p=${value}` : ""}`);
+  const discountParam = searchParams.get("p");
+  const increasedParam = searchParams.get("inc");
+
+  const [filter, setFilter] = useState<FilterProps>({
+    discountValue: discountParam === "true" ? true : false,
+    increased: increasedParam === "true" ? true : false,
+  });
+
+  const updateFilter = (filterProps: Partial<FilterProps>) => {
+    setFilter((prev) => {
+      return {
+        ...prev,
+        ...filterProps,
+      }
+    });
   };
+
+  useEffect(() => {
+    router.push(
+      `/?${filter.discountValue ? `p=${filter.discountValue}` : ""}${
+        filter.increased ? `inc=${filter.increased}` : ""
+      }`
+    );
+  }, [filter])
 
   return [filter, updateFilter] as const;
 }

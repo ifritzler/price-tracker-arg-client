@@ -92,4 +92,41 @@ describe("Product Card", () => {
 
     expect(button.length).toBe(2);
   });
+
+  it("should have a flag with information within when price has incresed", () => {
+    render(<ProductCard product={testProduct} />);
+
+    const flag = screen.getByLabelText("Faja informativa de producto");
+
+    expect(flag).toBeInTheDocument();
+  });
+
+  it("flag must render the correct porcentage of increse", () => {
+    render(<ProductCard product={testProduct} />);
+
+    const flag = screen.getByLabelText("Faja informativa de producto");
+
+    expect(flag).toHaveTextContent("Aumento del 18% en la última jornada");
+  });
+
+  it("flag shouldn't be appear if the percentage of increse is 0", () => {
+    render(
+      <ProductCard
+        product={{
+          ...testProduct,
+          dailyPrices: [
+            {
+              ...testProduct.dailyPrices![0],
+              diffPercentage: 0, // this is the object of the test
+            },
+          ],
+        }}
+      />
+    );
+
+    screen.queryByLabelText('Faja informativa de producto')
+    const flag = screen.queryByLabelText('Faja informativa de producto')
+
+    expect(flag).toBe(null);
+  });
 });

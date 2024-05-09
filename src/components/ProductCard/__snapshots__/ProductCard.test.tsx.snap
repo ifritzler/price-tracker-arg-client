@@ -22,6 +22,15 @@ exports[`Product Card renders product card unchanged 1`] = `
         style="color: transparent;"
         width="300"
       />
+      <span
+        aria-label="Faja informativa de producto"
+        class="absolute flex bottom-20 left-0 w-full h-6 bg-rose-800 z-50 opacity-95 text-xs justify-center items-center unselectable"
+      >
+        Aumento del
+         
+        18
+        % en la última jornada
+      </span>
       <a
         aria-label="Ir a la pagina web del producto"
         class="rounded-md p-2 flex items-center justify-center bg-[--color-primary] shadow-sm text-white absolute w-fit rounded-md top-3 right-3 false flex flex-row gap-1"

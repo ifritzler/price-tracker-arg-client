@@ -1,5 +1,6 @@
 import { ProductDashboard } from "@/components";
 import HeroHeader from "@/components/HeroHeader/HeroHeader";
+import { DashBoardFiltersProvider } from "@/contexts/DashBoardFiltersContext";
 
 export default function Home() {
   return (
@@ -7,7 +8,9 @@ export default function Home() {
       <nav></nav>
       <HeroHeader />
 
-      <ProductDashboard />
+      <DashBoardFiltersProvider>
+        <ProductDashboard />
+      </DashBoardFiltersProvider>
     </main>
   );
 }

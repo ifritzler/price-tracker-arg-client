@@ -1,11 +1,12 @@
 "use client";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 // Custom hook to manage pagination
-export function usePagination(initialPage: number, totalPages: number) {
-  const [currentPage, setCurrentPage] = useState<number>(initialPage);
+export function usePagination(totalPages: number) {
   const searchParams = useSearchParams();
+  const page = Number(searchParams.get("page") ?? "1");
+  const [currentPage, setCurrentPage] = useState<number>(page);
   const router = useRouter();
 
   useEffect(() => {
@@ -13,6 +14,8 @@ export function usePagination(initialPage: number, totalPages: number) {
     const page = params.get("page");
     if (page !== null) {
       setCurrentPage(parseInt(page));
+    } else {
+      setCurrentPage(1);
     }
   }, [searchParams]);
 
