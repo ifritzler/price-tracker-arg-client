@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
   --background-end-rgb: 214, 219, 220;
   --background-start-rgb: 255, 255, 255;
   
@@ -11,14 +10,12 @@
   --color-discount: #D10000;
   --color-text-disabled: #454545;
   --color-primary: #2A39BB;
-
-
+  
   --max-card-with: 300px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
     
@@ -26,10 +23,10 @@
     --color-discount: #FF3F3F;
     --color-text-disabled: #DADADA;
   }
+
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,

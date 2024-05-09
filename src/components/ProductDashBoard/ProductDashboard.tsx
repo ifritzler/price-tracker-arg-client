@@ -99,7 +99,7 @@ export function ProductDashboard() {
             icon={<BsFilterSquareFill size={20} />}
             typeb="button"
             text=""
-            className="bg-[#27272A]"
+            className="bg-graydark"
             onClick={onOpen}
           />
           <section className="flex justify-between gap-1">
@@ -108,7 +108,7 @@ export function ProductDashboard() {
                 onClick={prevPage}
                 typeb="button"
                 text="Anterior"
-                className="bg-[#27272A] text-xs font-medium rounded-xl"
+                className="bg-graydark text-xs font-medium rounded-xl"
               />
             )}
             {currentPage < totalPages && (
@@ -116,7 +116,7 @@ export function ProductDashboard() {
                 onClick={nextPage}
                 typeb="button"
                 text="Siguiente"
-                className="bg-[#27272A] text-xs font-medium rounded-xl"
+                className="bg-graydark text-xs font-medium rounded-xl"
               />
             )}
           </section>
@@ -155,7 +155,7 @@ export function ProductDashboard() {
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         placement="center"
-        className="max-w-[500px]"
+        className="max-w-[500px] dark:dark light:light dark:text-white"
       >
         <ModalContent>
           {(onClose) => (

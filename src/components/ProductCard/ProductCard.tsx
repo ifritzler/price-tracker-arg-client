@@ -14,7 +14,7 @@ export function ProductCard(props: Props) {
 
   return (
     <article
-      className="max-w-[--max-card-with] px-4 py-3 bg-[--background-card] rounded-2xl shadow-md transition-transform hover:scale-105 flex flex-col gap-2 justify-between"
+      className="max-w-[--max-card-with] dark:text-white px-4 py-3 bg-[--background-card] rounded-2xl shadow-md transition-transform hover:scale-105 flex flex-col gap-2 justify-between"
       aria-label="Tarjeta de producto"
     >
       <section
