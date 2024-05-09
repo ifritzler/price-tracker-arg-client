@@ -4,7 +4,7 @@ exports[`Product Card renders product card unchanged 1`] = `
 <div>
   <article
     aria-label="Tarjeta de producto"
-    class="max-w-[--max-card-with] px-4 py-3 bg-[--background-card] rounded-2xl shadow-md transition-transform hover:scale-105 flex flex-col gap-2 justify-between"
+    class="max-w-[--max-card-with] dark:text-white px-4 py-3 bg-[--background-card] rounded-2xl shadow-md transition-transform hover:scale-105 flex flex-col gap-2 justify-between"
   >
     <section
       aria-label="Cabecera de tarjeta de producto"
@@ -22,36 +22,30 @@ exports[`Product Card renders product card unchanged 1`] = `
         style="color: transparent;"
         width="300"
       />
-      <button
-        class="rounded-md p-2 flex items-center justify-center bg-[--color-primary] shadow-sm text-white absolute w-fit rounded-md top-3 right-3 false"
-        icon="[object Object]"
-        type="button"
-        url="https://www.carrefour.com.ar/aceite-de-girasol-cocinero-ecobotella-900-cc-732610/p"
+      <a
+        aria-label="Ir a la pagina web del producto"
+        class="rounded-md p-2 flex items-center justify-center bg-[--color-primary] shadow-sm text-white absolute w-fit rounded-md top-3 right-3 false flex flex-row gap-1"
+        href="https://www.carrefour.com.ar/aceite-de-girasol-cocinero-ecobotella-900-cc-732610/p"
       >
-        <a
-          class="flex flex-row gap-1"
-          href="https://www.carrefour.com.ar/aceite-de-girasol-cocinero-ecobotella-900-cc-732610/p"
-        >
-          <i>
-            <svg
-              aria-hidden="true"
-              fill="none"
-              height="20"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </i>
-        </a>
-      </button>
+        <i>
+          <svg
+            aria-hidden="true"
+            fill="none"
+            height="20"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </i>
+      </a>
       <h2
         aria-label="Título de producto"
         class="font-medium"
@@ -109,20 +103,14 @@ exports[`Product Card renders product card unchanged 1`] = `
       aria-label="Pie de tarjeta de producto"
       class="flex flex-col gap-1"
     >
-      <button
-        class="rounded-md px-4 py-2 flex items-center justify-center bg-[--color-primary] shadow-sm text-white undefined w-full"
-        type="button"
-        url="/product/1"
+      <a
+        class="rounded-md px-4 py-2 flex items-center justify-center bg-[--color-primary] shadow-sm text-white undefined w-full flex flex-row gap-1"
+        href="/product/1"
       >
-        <a
-          class="flex flex-row gap-1"
-          href="/product/1"
-        >
-          <span>
-            Ver estadísticas
-          </span>
-        </a>
-      </button>
+        <span>
+          Ver estadísticas
+        </span>
+      </a>
     </section>
   </article>
 </div>

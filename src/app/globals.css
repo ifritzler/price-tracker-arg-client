@@ -19,7 +19,8 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
     
-    --background-card: #0F0F0F;
+    --color-primary: #511fdb;
+    --background-card: #121214;
     --color-discount: #FF3F3F;
     --color-text-disabled: #DADADA;
   }

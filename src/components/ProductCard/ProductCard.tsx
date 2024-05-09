@@ -35,6 +35,7 @@ export function ProductCard(props: Props) {
           icon={<HiOutlineExternalLink size={20} />}
           onlyIcon
           className="absolute w-fit rounded-md top-3 right-3"
+          aria-label="Ir a la pagina web del producto"
         />
         <h2 aria-label="Título de producto" className="font-medium">
           {product.title}

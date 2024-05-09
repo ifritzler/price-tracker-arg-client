@@ -36,14 +36,16 @@ export default function Button(
   }
 
   if (typeb === "button-link") {
-    const { url, icon, onlyIcon } = props;
+    const { url, icon, onlyIcon, "aria-label": ariaLabel } = props;
     return (
-      <button className={buttonClassName} type="button" {...rest}>
-        <Link href={url || "/"} className="flex flex-row gap-1">
-          {onlyIcon && icon && <i>{icon}</i>}
-          {!onlyIcon && <span>{text}</span>}
-        </Link>
-      </button>
+      <Link
+        href={url || "/"}
+        className={`${buttonClassName} flex flex-row gap-1`}
+        aria-label={ariaLabel}
+      >
+        {onlyIcon && icon && <i>{icon}</i>}
+        {!onlyIcon && <span>{text}</span>}
+      </Link>
     );
   }
 

@@ -85,10 +85,10 @@ describe("Product Card", () => {
     expect(discount.classList).toContain("text-[--color-discount]");
   });
 
-  it("should have two buttons", () => {
+  it("should have 2 links", () => {
     render(<ProductCard product={testProduct} />);
 
-    const button = screen.getAllByRole("button");
+    const button = screen.getAllByRole("link");
 
     expect(button.length).toBe(2);
   });
