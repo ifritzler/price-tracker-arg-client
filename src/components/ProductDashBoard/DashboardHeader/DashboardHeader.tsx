@@ -9,7 +9,7 @@ interface Props {
   openModal: () => void;
 }
 
-export default function DashBoardNavigation({
+export default function DashBoardHeader({
   currentPage,
   prevPage,
   nextPage,

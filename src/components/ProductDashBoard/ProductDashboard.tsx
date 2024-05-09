@@ -7,7 +7,7 @@ import { usePagination } from "../../hooks/usePagination";
 import { useProducts } from "../../hooks/useProducts";
 import { FilterModal } from "./FilterModal/FilterModal";
 import { ProductCard } from "../ProductCard/ProductCard";
-import DashBoardNavigation from "./DashboardNavigation/DashboardNavigation";
+import DashBoardHeader from "./DashboardHeader/DashboardHeader";
 
 export function ProductDashboard() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -19,7 +19,7 @@ export function ProductDashboard() {
 
   return (
     <section className="container relative rounded-lg mx-auto">
-      <DashBoardNavigation
+      <DashBoardHeader
         currentPage={currentPage}
         prevPage={prevPage}
         nextPage={nextPage}
