@@ -29,10 +29,12 @@ export function useProductsFilters() {
   };
 
   useEffect(() => {
+    const rawparams = new URLSearchParams()
+    filter.discountValue && rawparams.set('p', String(filter.discountValue))
+    filter.increased && rawparams.set('inc', String(filter.increased))
+
     router.push(
-      `/?${filter.discountValue ? `p=${filter.discountValue}` : ""}${
-        filter.increased ? `inc=${filter.increased}` : ""
-      }`
+      `/?${rawparams.toString()}`
     );
   }, [filter])
 

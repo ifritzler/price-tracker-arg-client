@@ -27,6 +27,7 @@ export function FilterModal({ isOpen, onClose }: FilterModalProps) {
         <ModalBody>
           <div className="flex py-2 px-1 justify-between">
             <Checkbox
+              name="discount-filter"
               classNames={{
                 label: "text-small",
               }}
@@ -38,6 +39,22 @@ export function FilterModal({ isOpen, onClose }: FilterModalProps) {
               isSelected={filters.discountValue}
             >
               Promociones
+            </Checkbox>
+          </div>
+          <div className="flex py-2 px-1 justify-between">
+            <Checkbox
+              name="increse-filter"
+              classNames={{
+                label: "text-small",
+              }}
+              onChange={(e) => {
+                setFilters({
+                  increased: e.target.checked,
+                });
+              }}
+              isSelected={filters.increased}
+            >
+              Incrementos de precio
             </Checkbox>
           </div>
         </ModalBody>

@@ -13,9 +13,8 @@ export function ProductDashboard() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const { products, loading, meta, error } = useProducts();
-  const { currentPage, handleSetCurrentPage, prevPage, nextPage } = usePagination(
-    meta?.totalPages || 1
-  );
+  const { currentPage, handleSetCurrentPage, prevPage, nextPage } =
+    usePagination(meta?.totalPages || 1);
 
   return (
     <section className="container relative rounded-lg mx-auto">
@@ -32,7 +31,7 @@ export function ProductDashboard() {
         </main>
       )}
       {!loading && error && (
-        <main className="w-full h-[700px] mx-auto flex justify-center items-center">
+        <main className="w-full h-[700px] mx-auto flex justify-center items-center dark:text-white">
           <p className="max-w-80">{error}</p>
         </main>
       )}
@@ -55,10 +54,7 @@ export function ProductDashboard() {
           />
         )}
       </footer>
-      <FilterModal
-        isOpen={isOpen}
-        onClose={onClose}
-      />
+      <FilterModal isOpen={isOpen} onClose={onClose} />
     </section>
   );
 }

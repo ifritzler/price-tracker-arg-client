@@ -34,6 +34,15 @@ export function useProducts() {
           return;
         }
         const data = await response.json();
+        console.log(data.data)
+        if (data.data.length === 0) {
+          setError(
+            "Ups no encontramos productos con estos criterios de búsqueda."
+          );
+          setLoading(false);
+          return;
+        }
+
         setProducts(data.data);
         setMeta(data.meta);
       } catch (error) {

@@ -10,7 +10,7 @@ export default function HeroHeader() {
       subtitle="Toca para saber más"
       title={
         <div className="text-3xl flex flex-col gap-4 dark:text-white">
-            <h1 className="text-4xl font-bold">Explora Góndolas 1.0</h1>
+            <h1 className="text-4xl font-bold">Explora Góndolas</h1>
             <span className="text-inherit">Te cuento de que trata este proyecto!</span>
         </div>
       }

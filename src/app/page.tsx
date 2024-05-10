@@ -1,6 +1,7 @@
 import { ProductDashboard } from "@/components";
 import HeroHeader from "@/components/HeroHeader/HeroHeader";
 import { DashBoardFiltersProvider } from "@/contexts/DashBoardFiltersContext";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -8,9 +9,11 @@ export default function Home() {
       <nav></nav>
       <HeroHeader />
 
-      <DashBoardFiltersProvider>
-        <ProductDashboard />
-      </DashBoardFiltersProvider>
+      <Suspense>
+        <DashBoardFiltersProvider>
+          <ProductDashboard />
+        </DashBoardFiltersProvider>
+      </Suspense>
     </main>
   );
 }
