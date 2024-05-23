@@ -40,17 +40,17 @@ describe("Product Card", () => {
     );
 
     expect(price).toHaveTextContent(
-      formatPrice(testProduct.dailyPrices![0].price)
+      formatPrice(testProduct.dailyPrices!.price)
     );
     expect(discountPrice).toHaveTextContent(
-      formatPrice(testProduct.dailyPrices![0].promoPrice)
+      formatPrice(testProduct.dailyPrices!.discountPrice)
     );
   });
 
-  it("should only shows price if hasPromotion equals false", () => {
+  it("should only shows price if hasDiscount equals false", () => {
     const mockProduct: Product = {
       ...testProduct,
-      dailyPrices: [{ ...testProduct.dailyPrices![0], hasPromotion: false }],
+      dailyPrices: { ...testProduct.dailyPrices!, hasDiscount: false },
     };
     render(<ProductCard product={mockProduct} />);
 
@@ -62,7 +62,7 @@ describe("Product Card", () => {
     expect(prices.length).toBe(1);
   });
 
-  it("should see both price and discount price if hasPromotion is true", () => {
+  it("should see both price and discount price if hasDiscount is true", () => {
     render(<ProductCard product={testProduct} />);
 
     const price = screen.getByLabelText("Precio anterior");
@@ -114,12 +114,12 @@ describe("Product Card", () => {
       <ProductCard
         product={{
           ...testProduct,
-          dailyPrices: [
+          dailyPrices: 
             {
-              ...testProduct.dailyPrices![0],
+              ...testProduct.dailyPrices!,
               diffPercentage: 0, // this is the object of the test
             },
-          ],
+          
         }}
       />
     );

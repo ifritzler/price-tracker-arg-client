@@ -10,7 +10,7 @@ interface FilterProps {
 export function useProductsFilters() {
   const router = useRouter();
   const searchParams = useSearchParams();
-
+  
   const discountParam = searchParams.get("p");
   const increasedParam = searchParams.get("inc");
 

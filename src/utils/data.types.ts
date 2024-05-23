@@ -17,10 +17,10 @@ export type Product = {
   dailyPrices?: {
     id: number;
     productId: number;
-    hasPromotion: boolean;
+    hasDiscount: boolean;
     price: number;
-    promoPrice: number;
+    discountPrice: number;
     date: Date;
     diffPercentage: number;
-  }[];
+  };
 };

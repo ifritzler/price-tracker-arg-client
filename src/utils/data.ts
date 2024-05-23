@@ -16,15 +16,14 @@ export const testProduct: Product = {
       id: 1,
       name: "Almacén",
     },
-    dailyPrices: [
+    dailyPrices: 
       {
         id: 1,
         productId: 1,
-        hasPromotion: true,
+        hasDiscount: true,
         price: 10.99,
-        promoPrice: 8.99,
+        discountPrice: 8.99,
         date: new Date(),
         diffPercentage: 18,
       },
-    ],
   };

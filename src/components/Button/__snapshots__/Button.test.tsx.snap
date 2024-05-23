@@ -16,6 +16,7 @@ exports[`Button check renders button unchanged: link-button 1`] = `
   <a
     class="rounded-md px-4 py-2 flex items-center justify-center bg-[--color-primary] shadow-sm text-white undefined w-full flex flex-row gap-1"
     href="www.google.com"
+    target="_blank"
   >
     <span>
       Button

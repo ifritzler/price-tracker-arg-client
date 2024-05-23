@@ -28,14 +28,13 @@ export function ProductCard(props: Props) {
           width={300}
           height={300}
         />
-        {product && product.dailyPrices![0].diffPercentage > 0 && (
+        {product && product.dailyPrices!.diffPercentage > 0 && (
           <span
             aria-label="Faja informativa de producto"
             className="absolute flex bottom-20 left-0 w-full h-6 bg-rose-800 z-50 opacity-95 text-xs justify-center items-center unselectable"
           >
-            Aumento del{" "}
-            {Number(product.dailyPrices![0].diffPercentage).toFixed(0)}% en la
-            última jornada
+            Aumento del {Number(product.dailyPrices!.diffPercentage).toFixed(0)}
+            % en la última jornada
           </span>
         )}
         <Button
@@ -47,39 +46,41 @@ export function ProductCard(props: Props) {
           className="absolute w-fit rounded-md top-3 right-3"
           aria-label="Ir a la pagina web del producto"
         />
-        <h2 aria-label="Título de producto" className="font-medium">
-          {product.title}
-        </h2>
       </section>
       <section
         aria-label="Cuerpo con información de la tarjeta de producto"
-        className="flex flex-col gap-1"
+        className="flex flex-col gap-1 h-full justify-between"
       >
-        <div className="flex gap-4 text-xs justify-between">
-          <span className="uppercase">{product.supermarket.name}</span>
-          <span className="uppercase">{product.category.name}</span>
-        </div>
-        <div className="flex gap-4">
-          {/* Daily prices should only appear if the dailyPrices prop exist */}
-          {product.dailyPrices && (
-            <section className="flex gap-4 items-center justify-between w-full">
-              <span className="font-medium">Precio:</span>
-              <Price
-                price={product.dailyPrices[0].price}
-                type={
-                  product.dailyPrices[0].hasPromotion
-                    ? PriceTypeEnum.STRIKE
-                    : undefined
-                }
-              />
-              {product.dailyPrices[0].hasPromotion && (
+        <h2 aria-label="Título de producto" className="font-medium">
+          {product.title}
+        </h2>
+        <div>
+          <div className="flex gap-4 text-xs justify-between">
+            <span className="uppercase">{product.supermarket.name}</span>
+            <span className="uppercase">{product.category.name}</span>
+          </div>
+          <div className="flex gap-4">
+            {/* Daily prices should only appear if the dailyPrices prop exist */}
+            {product.dailyPrices && (
+              <section className="flex gap-4 items-center justify-between w-full">
+                <span className="font-medium">Precio:</span>
                 <Price
-                  price={product.dailyPrices[0].promoPrice}
-                  type={PriceTypeEnum.DISCOUNT}
+                  price={product.dailyPrices.price}
+                  type={
+                    product.dailyPrices.hasDiscount
+                      ? PriceTypeEnum.STRIKE
+                      : undefined
+                  }
                 />
-              )}
-            </section>
-          )}
+                {product.dailyPrices.hasDiscount && (
+                  <Price
+                    price={product.dailyPrices.discountPrice}
+                    type={PriceTypeEnum.DISCOUNT}
+                  />
+                )}
+              </section>
+            )}
+          </div>
         </div>
       </section>
       <section

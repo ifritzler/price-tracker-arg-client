@@ -42,6 +42,7 @@ export default function Button(
         href={url || "/"}
         className={`${buttonClassName} flex flex-row gap-1`}
         aria-label={ariaLabel}
+        target="_blank"
       >
         {onlyIcon && icon && <i>{icon}</i>}
         {!onlyIcon && <span>{text}</span>}

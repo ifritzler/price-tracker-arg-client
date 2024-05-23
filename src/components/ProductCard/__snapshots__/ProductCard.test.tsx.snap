@@ -26,8 +26,7 @@ exports[`Product Card renders product card unchanged 1`] = `
         aria-label="Faja informativa de producto"
         class="absolute flex bottom-20 left-0 w-full h-6 bg-rose-800 z-50 opacity-95 text-xs justify-center items-center unselectable"
       >
-        Aumento del
-         
+        Aumento del 
         18
         % en la última jornada
       </span>
@@ -35,6 +34,7 @@ exports[`Product Card renders product card unchanged 1`] = `
         aria-label="Ir a la pagina web del producto"
         class="rounded-md p-2 flex items-center justify-center bg-[--color-primary] shadow-sm text-white absolute w-fit rounded-md top-3 right-3 false flex flex-row gap-1"
         href="https://www.carrefour.com.ar/aceite-de-girasol-cocinero-ecobotella-900-cc-732610/p"
+        target="_blank"
       >
         <i>
           <svg
@@ -55,57 +55,59 @@ exports[`Product Card renders product card unchanged 1`] = `
           </svg>
         </i>
       </a>
+    </section>
+    <section
+      aria-label="Cuerpo con información de la tarjeta de producto"
+      class="flex flex-col gap-1 h-full justify-between"
+    >
       <h2
         aria-label="Título de producto"
         class="font-medium"
       >
         Aceite de girasol Cocinero ecobotella 900 cc.
       </h2>
-    </section>
-    <section
-      aria-label="Cuerpo con información de la tarjeta de producto"
-      class="flex flex-col gap-1"
-    >
-      <div
-        class="flex gap-4 text-xs justify-between"
-      >
-        <span
-          class="uppercase"
-        >
-          carrefour
-        </span>
-        <span
-          class="uppercase"
-        >
-          Almacén
-        </span>
-      </div>
-      <div
-        class="flex gap-4"
-      >
-        <section
-          class="flex gap-4 items-center justify-between w-full"
+      <div>
+        <div
+          class="flex gap-4 text-xs justify-between"
         >
           <span
-            class="font-medium"
+            class="uppercase"
           >
-            Precio:
+            carrefour
           </span>
           <span
-            aria-label="Precio anterior"
-            class="font-medium text-sm line-through text-[--color-text-disabled]"
-            data-testid="Precio"
+            class="uppercase"
           >
-            $10.99
+            Almacén
           </span>
-          <span
-            aria-label="Precio de promoción del producto"
-            class="font-bold text-sm text-[--color-discount]"
-            data-testid="Precio"
+        </div>
+        <div
+          class="flex gap-4"
+        >
+          <section
+            class="flex gap-4 items-center justify-between w-full"
           >
-            $8.99
-          </span>
-        </section>
+            <span
+              class="font-medium"
+            >
+              Precio:
+            </span>
+            <span
+              aria-label="Precio anterior"
+              class="font-medium text-sm line-through text-[--color-text-disabled]"
+              data-testid="Precio"
+            >
+              $10.99
+            </span>
+            <span
+              aria-label="Precio de promoción del producto"
+              class="font-bold text-sm text-[--color-discount]"
+              data-testid="Precio"
+            >
+              $8.99
+            </span>
+          </section>
+        </div>
       </div>
     </section>
     <section
@@ -115,6 +117,7 @@ exports[`Product Card renders product card unchanged 1`] = `
       <a
         class="rounded-md px-4 py-2 flex items-center justify-center bg-[--color-primary] shadow-sm text-white undefined w-full flex flex-row gap-1"
         href="/product/1"
+        target="_blank"
       >
         <span>
           Ver estadísticas

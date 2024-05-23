@@ -14,7 +14,7 @@ export function ProductDashboard() {
 
   const { products, loading, meta, error } = useProducts();
   const { currentPage, handleSetCurrentPage, prevPage, nextPage } =
-    usePagination(meta?.totalPages || 1);
+    usePagination(meta?.totalPages ?? 1);
 
   return (
     <section className="container relative rounded-lg mx-auto">
@@ -45,7 +45,7 @@ export function ProductDashboard() {
       <footer className="flex justify-center">
         {!error && !loading && (
           <Pagination
-            total={meta?.totalPages || 1}
+            total={meta?.totalPages ?? 1}
             initialPage={currentPage}
             aria-label="Paginas de productos"
             size="sm"
