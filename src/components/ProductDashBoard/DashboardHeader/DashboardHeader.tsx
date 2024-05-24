@@ -18,7 +18,7 @@ export default function DashBoardHeader({
 }: Props) {
 
   return (
-    <header className="sticky top-0 bg-[--color-primary] p-4 z-10 rounded-t-lg flex flex-row justify-between items-center">
+    <header className="sticky top-0 bg-[--color-primary] p-4 z-50 rounded-t-lg flex flex-row justify-between items-center">
       <span className="text-[#FFFFFF] text-lg">Panel de productos</span>
       <section className="flex gap-4">
         <Button

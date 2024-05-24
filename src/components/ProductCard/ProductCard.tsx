@@ -31,7 +31,7 @@ export function ProductCard(props: Props) {
         {product && product.dailyPrices!.diffPercentage > 0 && (
           <span
             aria-label="Faja informativa de producto"
-            className="absolute flex bottom-20 left-0 w-full h-6 bg-rose-800 z-50 opacity-95 text-xs justify-center items-center unselectable"
+            className="absolute flex bottom-20 left-0 w-full h-6 bg-rose-800 z-10 opacity-95 text-xs justify-center items-center unselectable"
           >
             Aumento del {Number(product.dailyPrices!.diffPercentage).toFixed(0)}
             % en la última jornada
