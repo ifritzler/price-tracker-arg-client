@@ -19,7 +19,7 @@ export default function HeroHeader() {
         
         <article className="text-lg text-pretty max-w-5xl flex flex-col gap-4">
           <p>
-            Este proyecto educativo de "price tracking" simplifica tu
+            Este proyecto de "price tracking" simplifica tu
             experiencia en el supermercado al rastrear diariamente los
             precios y promociones en distintas cadenas.
           </p>
