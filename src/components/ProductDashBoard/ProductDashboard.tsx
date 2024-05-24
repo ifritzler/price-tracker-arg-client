@@ -1,30 +1,26 @@
 "use client";
+import { useFilterContext } from "@/contexts/DashBoardFiltersContext";
 import { Product } from "@/utils/data.types";
 import { Pagination } from "@nextui-org/pagination";
 import { useDisclosure } from "@nextui-org/react";
 import { Spinner } from "@nextui-org/spinner";
-import { usePagination } from "../../hooks/usePagination";
 import { useProducts } from "../../hooks/useProducts";
-import { FilterModal } from "./FilterModal/FilterModal";
 import { ProductCard } from "../ProductCard/ProductCard";
 import DashBoardHeader from "./DashboardHeader/DashboardHeader";
+import { FilterModal } from "./FilterModal/FilterModal";
 
 export function ProductDashboard() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const { products, loading, meta, error } = useProducts();
-  const { currentPage, handleSetCurrentPage, prevPage, nextPage } =
-    usePagination(meta?.totalPages ?? 1);
+  const {
+    pagination: { currentPage },
+    setPage,
+  } = useFilterContext();
 
   return (
     <section className="container relative rounded-lg mx-auto">
-      <DashBoardHeader
-        currentPage={currentPage}
-        prevPage={prevPage}
-        nextPage={nextPage}
-        totalPages={meta?.totalPages ?? 1}
-        openModal={onOpen}
-      />
+      <DashBoardHeader openModal={onOpen} loadingProducts={loading} />
       {loading && (
         <main className="w-full h-[700px] mx-auto flex justify-center items-center">
           <Spinner size="lg" />
@@ -50,7 +46,7 @@ export function ProductDashboard() {
             aria-label="Paginas de productos"
             size="sm"
             className="dark"
-            onChange={handleSetCurrentPage}
+            onChange={setPage}
           />
         )}
       </footer>

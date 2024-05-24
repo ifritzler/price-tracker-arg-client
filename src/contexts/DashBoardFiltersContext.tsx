@@ -1,26 +1,46 @@
-"use client"
+"use client";
 import { useProductsFilters } from "@/hooks/useProductFilters";
 import { createContext, PropsWithChildren, useContext } from "react";
 
-interface FilterProps {
-    discountValue: boolean;
-    increased: boolean;
-  }
+type FilterProps = {
+  discountValue: boolean;
+  increased: boolean;
+  page: number;
+  totalPages: number;
+};
+
+type CommonFilterProps = Partial<Omit<FilterProps, "page" | "totalPages">>;
 
 interface DashboardContextFilterProps {
-    filters: FilterProps,
-    setFilters: (props: Partial<FilterProps>) => void
+  filters: CommonFilterProps;
+  setFilters: (props: Partial<FilterProps>) => void;
+  setPage: (page: number) => void;
+  prevPage: () => void;
+  nextPage: () => void;
+  pagination: { currentPage: number; totalPages: number };
 }
 
-const DashBoardFiltersContext = createContext<DashboardContextFilterProps | null>(null)
+const DashBoardFiltersContext =
+  createContext<DashboardContextFilterProps | null>(null);
 
 export const DashBoardFiltersProvider = ({ children }: PropsWithChildren) => {
-    
-    const [filters, setFilters] = useProductsFilters();
+  const {
+    commonFilters: filters,
+    updateFilter: setFilters,
+    nextPage,
+    prevPage,
+    setPage,
+    pagination,
+  } = useProductsFilters();
 
-    return <DashBoardFiltersContext.Provider value={{filters, setFilters}}>
-        {children}
+  return (
+    <DashBoardFiltersContext.Provider
+      value={{ filters, setFilters, nextPage, prevPage, setPage, pagination }}
+    >
+      {children}
     </DashBoardFiltersContext.Provider>
-}
+  );
+};
 
-export const useFilterContext = () => useContext(DashBoardFiltersContext) as DashboardContextFilterProps;
+export const useFilterContext = () =>
+  useContext(DashBoardFiltersContext) as DashboardContextFilterProps;

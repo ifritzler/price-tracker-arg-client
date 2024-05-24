@@ -11,11 +11,12 @@ export function useProducts() {
   const [error, setError] = useState<string | null>(null);
 
   const searchParams = useSearchParams();
-  const { filters } = useFilterContext();
+  const { filters, setFilters } = useFilterContext();
 
   useEffect(() => {
     setLoading(true);
     const page = searchParams.get("page") ?? 1;
+
     async function fetchData() {
       try {
         setError(null);
@@ -43,6 +44,7 @@ export function useProducts() {
         }
 
         setProducts(data.data);
+        setFilters({ page: Number(page), totalPages: data.meta.totalPages });
         setMeta(data.meta);
       } catch (error) {
         setError(
@@ -53,7 +55,7 @@ export function useProducts() {
       }
     }
     fetchData();
-  }, [searchParams, filters]);
+  }, [searchParams]);
 
   return { products, loading, error, meta };
 }
