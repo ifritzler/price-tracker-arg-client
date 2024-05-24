@@ -13,7 +13,8 @@ type CommonFilterProps = Partial<Omit<FilterProps, "page" | "totalPages">>;
 
 interface DashboardContextFilterProps {
   filters: CommonFilterProps;
-  setFilters: (props: Partial<FilterProps>) => void;
+  setFilters: (props: Partial<CommonFilterProps>) => void;
+  setPaginationInfo: (paginationProps: Partial<{page: number, totalPages: number}>) => void;
   setPage: (page: number) => void;
   prevPage: () => void;
   nextPage: () => void;
@@ -30,12 +31,13 @@ export const DashBoardFiltersProvider = ({ children }: PropsWithChildren) => {
     nextPage,
     prevPage,
     setPage,
+    setPaginationInfo,
     pagination,
   } = useProductsFilters();
 
   return (
     <DashBoardFiltersContext.Provider
-      value={{ filters, setFilters, nextPage, prevPage, setPage, pagination }}
+      value={{ filters, setFilters, nextPage, prevPage, setPage, pagination, setPaginationInfo }}
     >
       {children}
     </DashBoardFiltersContext.Provider>

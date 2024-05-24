@@ -11,7 +11,7 @@ export function useProducts() {
   const [error, setError] = useState<string | null>(null);
 
   const searchParams = useSearchParams();
-  const { filters, setFilters } = useFilterContext();
+  const { filters, setFilters, setPaginationInfo } = useFilterContext();
 
   useEffect(() => {
     setLoading(true);
@@ -44,7 +44,7 @@ export function useProducts() {
         }
 
         setProducts(data.data);
-        setFilters({ page: Number(page), totalPages: data.meta.totalPages });
+        setPaginationInfo({ page: Number(page), totalPages: data.meta.totalPages });
         setMeta(data.meta);
       } catch (error) {
         setError(

@@ -31,9 +31,19 @@ export function useProductsFilters() {
       return {
         ...prev,
         ...filterProps,
+        page: 1
       };
     });
   };
+
+  const setPaginationInfo = (paginationProps: Partial<{page: number, totalPages: number}>) => {
+    setFilter((prev) => {
+      return {
+        ...prev,
+        ...paginationProps,
+      };
+    });
+  }
 
   const prevPage = () => {
     setFilter((prev) => {
@@ -67,6 +77,7 @@ export function useProductsFilters() {
     const rawparams = new URLSearchParams();
     filter.discountValue && rawparams.set("p", String(filter.discountValue));
     filter.increased && rawparams.set("inc", String(filter.increased));
+    
     filter.page &&
       filter.page !== 1 &&
       rawparams.set("page", String(filter.page));
@@ -78,6 +89,7 @@ export function useProductsFilters() {
     pagination: { currentPage, totalPages },
     commonFilters,
     updateFilter,
+    setPaginationInfo,
     nextPage,
     prevPage,
     setPage,
