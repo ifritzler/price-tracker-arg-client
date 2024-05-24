@@ -7,7 +7,7 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Explora gondolas",
-  description: "Un proyecto que busca poder ofrecer mas información acerca de los productos que estas vas a adquirir, en un contexto donde los precios importan.",
+  description: "Un proyecto dedicado a proporcionar información detallada sobre los productos que deseas adquirir, en un contexto donde los precios importan.",
 };
 
 export default function RootLayout({
