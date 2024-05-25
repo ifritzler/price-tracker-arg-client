@@ -33,7 +33,7 @@ export default function Price({ price, type }: Props) {
 
   return (
     <span
-      className="font-medium text-sm"
+      className="font-bold text-sm"
       aria-label="Precio de lista del producto"
       data-testid="Precio"
     >
