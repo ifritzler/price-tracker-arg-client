@@ -4,12 +4,14 @@ import "./globals.css";
 import { UpPage } from "@/components";
 import Navbar from "@/components/Navbar/Navbar";
 import { DashBoardFiltersProvider } from "@/contexts/DashBoardFiltersContext";
+import { Suspense } from "react";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Explora gondolas",
-  description: "Un proyecto dedicado a proporcionar información detallada sobre los productos que deseas adquirir, en un contexto donde los precios importan.",
+  description:
+    "Un proyecto dedicado a proporcionar información detallada sobre los productos que deseas adquirir, en un contexto donde los precios importan.",
 };
 
 export default function RootLayout({
@@ -20,10 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.className} min-h-lvh dark:bg-gray-900`}>
-      <DashBoardFiltersProvider>
-        <Navbar />
-        {children}
-        </DashBoardFiltersProvider>
+        <Suspense>
+          <DashBoardFiltersProvider>
+            <Navbar />
+            {children}
+          </DashBoardFiltersProvider>
+        </Suspense>
         <UpPage />
       </body>
     </html>
