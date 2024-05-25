@@ -11,7 +11,7 @@ export function useProducts() {
   const [error, setError] = useState<string | null>(null);
 
   const searchParams = useSearchParams();
-  const { filters, setFilters, setPaginationInfo } = useFilterContext();
+  const { filters, setPaginationInfo } = useFilterContext();
 
   useEffect(() => {
     setLoading(true);
@@ -25,7 +25,7 @@ export function useProducts() {
             page && `page=${page}`
           }${filters.discountValue ? `&p=true` : ""}${
             filters.increased ? `&inc=true` : ""
-          }`
+          }${filters.searchValue ? `&q=${filters.searchValue.trim()}` : ""}`
         );
         if (response.status !== 200) {
           setError(
@@ -44,7 +44,10 @@ export function useProducts() {
         }
 
         setProducts(data.data);
-        setPaginationInfo({ page: Number(page), totalPages: data.meta.totalPages });
+        setPaginationInfo({
+          page: Number(page),
+          totalPages: data.meta.totalPages,
+        });
         setMeta(data.meta);
       } catch (error) {
         setError(

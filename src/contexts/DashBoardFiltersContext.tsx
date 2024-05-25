@@ -5,6 +5,7 @@ import { createContext, PropsWithChildren, useContext } from "react";
 type FilterProps = {
   discountValue: boolean;
   increased: boolean;
+  searchValue: string;
   page: number;
   totalPages: number;
 };
