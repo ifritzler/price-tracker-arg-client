@@ -6,8 +6,8 @@ import { MdDone } from "react-icons/md";
 
 export default function HeroHeader() {
   return (
-    <section className="flex flex-col md:flex-row gap-2 items-center text-lg justify-center dark:text-white light:text-black">
-      <article className="flex flex-col gap-2 w-full md:w-2/3 p-6 max-w-[600px]">
+    <section className="flex flex-col lg:flex-row gap-2 items-center text-lg justify-center dark:text-white light:text-black">
+      <article className="flex flex-col gap-2 w-full lg:w-2/3 p-6 max-w-[600px]">
         <header>
           <h1 className="text-4xl font-bold">Explora Góndolas</h1>
           <div className="max-w-[350px] max-h-[350px] mx-auto">
