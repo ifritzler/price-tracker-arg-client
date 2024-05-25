@@ -10,6 +10,7 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "@midudev/tailwind-animations": "^0.0.7",
     "@nextui-org/accordion": "^2.0.32",
     "@nextui-org/modal": "^2.0.33",
     "@nextui-org/pagination": "^2.0.30",

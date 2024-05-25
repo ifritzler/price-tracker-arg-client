@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { UpPage } from "@/components";
+import Navbar from "@/components/Navbar/Navbar";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -17,7 +18,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} min-h-lvh`}>
+      <body className={`${montserrat.className} min-h-lvh dark:bg-gray-900`}>
+        <Navbar />
         {children}
         <UpPage />
       </body>

@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 import { nextui } from '@nextui-org/react';
+// @ts-expect-error no ts support
+import animations from '@midudev/tailwind-animations'
 
 const config: Config = {
   content: [
@@ -16,6 +18,6 @@ const config: Config = {
     }
   },
   plugins: [nextui({
-  })],
+  }), animations],  
 };
 export default config;

@@ -19,7 +19,7 @@ export default function DashBoardHeader({ openModal, loadingProducts }: Props) {
       <header className="bg-[--color-primary] p-4 rounded-t-lg flex flex-row flex-wrap gap-4 justify-between items-center">
         <span className="text-[#FFFFFF] text-lg">Panel de productos</span>
       </header>
-      <footer className="flex p-4 dark:from-black bg-gradient-to-b light:from-white to-black to-95% justify-between">
+      <footer className="flex p-4 bg-black rounded-b-lg light:from-white justify-between">
         <button
           onClick={openModal}
           aria-label="Selector de filtros"

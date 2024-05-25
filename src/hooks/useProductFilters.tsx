@@ -81,7 +81,7 @@ export function useProductsFilters() {
     filter.page &&
       filter.page !== 1 &&
       rawparams.set("page", String(filter.page));
-    router.push(`/?${rawparams.toString()}`);
+    router.push(`?${rawparams.toString()}`);
   }, [filter]);
 
   const { page: currentPage, totalPages, ...commonFilters } = filter;

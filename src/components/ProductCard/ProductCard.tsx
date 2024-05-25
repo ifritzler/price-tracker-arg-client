@@ -1,9 +1,9 @@
 import { Product } from "@/utils/data.types";
 import { PriceTypeEnum } from "@/utils/prices/prices";
 import Image from "next/image";
-import Price from "../Price/Price";
-import Button from "../Button/Button";
 import { HiOutlineExternalLink } from "react-icons/hi";
+import Button from "../Button/Button";
+import Price from "../Price/Price";
 
 interface Props {
   product: Product;
@@ -14,7 +14,7 @@ export function ProductCard(props: Props) {
 
   return (
     <article
-      className="max-w-[--max-card-with] dark:text-white px-4 py-3 bg-[--background-card] rounded-2xl shadow-md transition-transform hover:scale-105 flex flex-col gap-2 justify-between"
+      className="animate-fade-in-up max-w-[--max-card-with] dark:text-white px-4 py-3 bg-[--background-card] rounded-2xl shadow-md transition-transform hover:scale-105 flex flex-col gap-2 justify-between"
       aria-label="Tarjeta de producto"
     >
       <section
@@ -24,9 +24,9 @@ export function ProductCard(props: Props) {
         <Image
           alt={`Imagen del producto: ${product.title}`}
           src={product.imageUrl}
-          className="rounded-2xl"
+          className="rounded-2xl max-h-[170px] object-cover"
           width={300}
-          height={300}
+          height={170}
         />
         {product && product.dailyPrices!.diffPercentage > 0 && (
           <span
