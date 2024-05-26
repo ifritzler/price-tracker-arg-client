@@ -1,5 +1,4 @@
 import { ProductDashboard } from "@/components";
-import { DashBoardFiltersProvider } from "@/contexts/DashBoardFiltersContext";
 import { Suspense } from "react";
 
 export default function Busqueda() {
