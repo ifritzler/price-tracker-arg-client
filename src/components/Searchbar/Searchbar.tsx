@@ -1,7 +1,5 @@
 "use client";
-import { useFilterContext } from "@/contexts/DashBoardFiltersContext";
 import { Input } from "@nextui-org/react";
-import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useRef } from "react";
 import { IoIosSearch } from "react-icons/io";
 
@@ -9,19 +7,11 @@ interface SearchProps {
   //   onSubmit: (text: string) => void;
 }
 export function SearchBar(props: SearchProps) {
-  const searchParams = useSearchParams();
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const { setFilters } = useFilterContext()
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     e.stopPropagation();
-
-    const stringParams = searchParams.toString();
-    const newParams = new URLSearchParams(stringParams);
-    newParams.set("q", inputRef.current?.value || "");
-
-    setFilters({searchValue: inputRef.current?.value})
   };
 
   return (

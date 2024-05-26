@@ -3,8 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { UpPage } from "@/components";
 import Navbar from "@/components/Navbar/Navbar";
-import { DashBoardFiltersProvider } from "@/contexts/DashBoardFiltersContext";
-import { Suspense } from "react";
+import { Providers } from "./providers";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -20,16 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${montserrat.className} min-h-lvh dark:bg-gray-900`}>
-        <Suspense>
-          <DashBoardFiltersProvider>
-            <Navbar />
-            {children}
-          </DashBoardFiltersProvider>
-        </Suspense>
-        <UpPage />
-      </body>
+    <html lang="es">
+      <Providers>
+        <body className={`${montserrat.className} min-h-lvh dark:bg-gray-900`}>
+          <Navbar />
+          {children}
+          <UpPage />
+        </body>
+      </Providers>
     </html>
   );
 }

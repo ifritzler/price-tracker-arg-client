@@ -1,4 +1,3 @@
-import { useFilterContext } from "@/contexts/DashBoardFiltersContext";
 import {
   Modal,
   ModalBody,
@@ -14,7 +13,6 @@ interface FilterModalProps {
 }
 
 export function FilterModal({ isOpen, onClose }: FilterModalProps) {
-  const { filters, setFilters } = useFilterContext();
   return (
     <Modal
       isOpen={isOpen}
@@ -31,12 +29,8 @@ export function FilterModal({ isOpen, onClose }: FilterModalProps) {
               classNames={{
                 label: "text-small",
               }}
-              onChange={(e) => {
-                setFilters({
-                  discountValue: e.target.checked,
-                });
-              }}
-              isSelected={filters.discountValue}
+              onChange={() => {}}
+              isSelected={false}
             >
               Promociones
             </Checkbox>
@@ -47,12 +41,8 @@ export function FilterModal({ isOpen, onClose }: FilterModalProps) {
               classNames={{
                 label: "text-small",
               }}
-              onChange={(e) => {
-                setFilters({
-                  increased: e.target.checked,
-                });
-              }}
-              isSelected={filters.increased}
+              onChange={() => {}}
+              isSelected={false}
             >
               Incrementos de precio
             </Checkbox>
