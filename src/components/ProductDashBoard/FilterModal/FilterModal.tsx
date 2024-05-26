@@ -1,4 +1,5 @@
-import { useFilterContext } from "@/contexts/DashBoardFiltersContext";
+import { useFilterStore } from "@/store/useFilter.store";
+import { usePaginationStore } from "@/store/usePagination.store";
 import {
   Modal,
   ModalBody,
@@ -14,7 +15,12 @@ interface FilterModalProps {
 }
 
 export function FilterModal({ isOpen, onClose }: FilterModalProps) {
-  const { filters, setFilters } = useFilterContext();
+  const discountValue = useFilterStore.use.discountValue();
+  const setDiscountValue = useFilterStore.use.setDiscountValue();
+  const increased = useFilterStore.use.increased();
+  const setIncreased = useFilterStore.use.setIncreased();
+  const resetPagination = usePaginationStore.use.reset();
+
   return (
     <Modal
       isOpen={isOpen}
@@ -32,11 +38,10 @@ export function FilterModal({ isOpen, onClose }: FilterModalProps) {
                 label: "text-small",
               }}
               onChange={(e) => {
-                setFilters({
-                  discountValue: e.target.checked,
-                });
+                setDiscountValue(e.target.checked);
+                resetPagination()
               }}
-              isSelected={filters.discountValue}
+              isSelected={discountValue}
             >
               Promociones
             </Checkbox>
@@ -48,11 +53,10 @@ export function FilterModal({ isOpen, onClose }: FilterModalProps) {
                 label: "text-small",
               }}
               onChange={(e) => {
-                setFilters({
-                  increased: e.target.checked,
-                });
+                setIncreased(e.target.checked);
+                resetPagination()
               }}
-              isSelected={filters.increased}
+              isSelected={increased}
             >
               Incrementos de precio
             </Checkbox>

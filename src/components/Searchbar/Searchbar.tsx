@@ -1,27 +1,26 @@
 "use client";
-import { useFilterContext } from "@/contexts/DashBoardFiltersContext";
+import { useFilterStore } from "@/store/useFilter.store";
 import { Input } from "@nextui-org/react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { FormEvent, useRef } from "react";
 import { IoIosSearch } from "react-icons/io";
 
-interface SearchProps {
-  //   onSubmit: (text: string) => void;
-}
-export function SearchBar(props: SearchProps) {
-  const searchParams = useSearchParams();
+export function SearchBar() {
   const inputRef = useRef<HTMLInputElement>(null)
+  const pathname = usePathname()
+  const router = useRouter()
 
-  const { setFilters } = useFilterContext()
+  const setSearchValue = useFilterStore.use.setSearchValue()
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     e.stopPropagation();
-
-    const stringParams = searchParams.toString();
-    const newParams = new URLSearchParams(stringParams);
-    newParams.set("q", inputRef.current?.value || "");
-
-    setFilters({searchValue: inputRef.current?.value})
+    if(pathname !== '/busqueda') {
+      router.push('/busqueda')
+    }
+    setSearchValue(inputRef.current?.value || "")
+    if(inputRef.current) {
+      inputRef.current.value = ''
+    }
   };
 
   return (

@@ -1,18 +1,14 @@
 import Button from "@/components/Button/Button";
-import { useFilterContext } from "@/contexts/DashBoardFiltersContext";
+import { usePaginationStore } from "@/store/usePagination.store";
 import { BsFilterSquareFill } from "react-icons/bs";
 
 interface Props {
   openModal: () => void;
-  loadingProducts: boolean;
 }
 
-export default function DashBoardHeader({ openModal, loadingProducts }: Props) {
-  const {
-    pagination: { currentPage, totalPages },
-    nextPage,
-    prevPage,
-  } = useFilterContext();
+export default function DashBoardHeader({ openModal }: Props) {
+  const nextPage = usePaginationStore.use.nextPage()
+  const prevPage = usePaginationStore.use.prevPage()
 
   return (
     <section className="flex flex-col z-50 sticky top-0 ">
@@ -33,19 +29,15 @@ export default function DashBoardHeader({ openModal, loadingProducts }: Props) {
             onClick={prevPage}
             typeb="button"
             text="Anterior"
-            className={`bg-graydark text-xs font-medium rounded-3xl max-w-24 shadow-sm ${
-              currentPage === 1 || (loadingProducts && "opacity-70")
-            }`}
-            disabled={currentPage === 1 || loadingProducts}
+            className={`bg-graydark text-xs font-medium rounded-3xl max-w-24 shadow-sm`}
+            disabled={false}
           />
           <Button
             onClick={nextPage}
             typeb="button"
             text="Siguiente"
-            className={`bg-graydark text-xs font-medium rounded-3xl max-w-24 shadow-sm ${
-              currentPage === totalPages || (loadingProducts && "opacity-70")
-            }`}
-            disabled={currentPage === totalPages || loadingProducts}
+            className={`bg-graydark text-xs font-medium rounded-3xl max-w-24 shadow-sm`}
+            disabled={false}
           />
         </section>
       </footer>
