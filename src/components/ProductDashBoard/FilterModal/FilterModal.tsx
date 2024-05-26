@@ -1,4 +1,5 @@
 import { useFilterStore } from "@/store/useFilter.store";
+import { usePaginationStore } from "@/store/usePagination.store";
 import {
   Modal,
   ModalBody,
@@ -18,6 +19,8 @@ export function FilterModal({ isOpen, onClose }: FilterModalProps) {
   const setDiscountValue = useFilterStore.use.setDiscountValue();
   const increased = useFilterStore.use.increased();
   const setIncreased = useFilterStore.use.setIncreased();
+  const resetPagination = usePaginationStore.use.reset();
+
   return (
     <Modal
       isOpen={isOpen}
@@ -36,6 +39,7 @@ export function FilterModal({ isOpen, onClose }: FilterModalProps) {
               }}
               onChange={(e) => {
                 setDiscountValue(e.target.checked);
+                resetPagination()
               }}
               isSelected={discountValue}
             >
@@ -50,6 +54,7 @@ export function FilterModal({ isOpen, onClose }: FilterModalProps) {
               }}
               onChange={(e) => {
                 setIncreased(e.target.checked);
+                resetPagination()
               }}
               isSelected={increased}
             >
