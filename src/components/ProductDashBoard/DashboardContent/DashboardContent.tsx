@@ -61,7 +61,8 @@ export function DashboardContent() {
       <footer className="flex justify-center">
         <Pagination
           total={totalPages}
-          initialPage={page || 1}
+          page={page}
+          initialPage={page}
           aria-label="Paginas de productos"
           size="sm"
           className="dark"
