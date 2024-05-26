@@ -9,6 +9,7 @@ interface Props {
 export default function DashBoardHeader({ openModal }: Props) {
   const nextPage = usePaginationStore.use.nextPage()
   const prevPage = usePaginationStore.use.prevPage()
+
   return (
     <section className="flex flex-col z-50 sticky top-0 ">
       <header className="bg-[--color-primary] p-4 rounded-t-lg flex flex-row flex-wrap gap-4 justify-between items-center">

@@ -1,3 +1,4 @@
+import { useFilterStore } from "@/store/useFilter.store";
 import {
   Modal,
   ModalBody,
@@ -13,6 +14,10 @@ interface FilterModalProps {
 }
 
 export function FilterModal({ isOpen, onClose }: FilterModalProps) {
+  const discountValue = useFilterStore.use.discountValue();
+  const setDiscountValue = useFilterStore.use.setDiscountValue();
+  const increased = useFilterStore.use.increased();
+  const setIncreased = useFilterStore.use.setIncreased();
   return (
     <Modal
       isOpen={isOpen}
@@ -29,8 +34,10 @@ export function FilterModal({ isOpen, onClose }: FilterModalProps) {
               classNames={{
                 label: "text-small",
               }}
-              onChange={() => {}}
-              isSelected={false}
+              onChange={(e) => {
+                setDiscountValue(e.target.checked);
+              }}
+              isSelected={discountValue}
             >
               Promociones
             </Checkbox>
@@ -41,8 +48,10 @@ export function FilterModal({ isOpen, onClose }: FilterModalProps) {
               classNames={{
                 label: "text-small",
               }}
-              onChange={() => {}}
-              isSelected={false}
+              onChange={(e) => {
+                setIncreased(e.target.checked);
+              }}
+              isSelected={increased}
             >
               Incrementos de precio
             </Checkbox>
