@@ -1,14 +1,14 @@
 import { ProductCard } from "@/components/ProductCard/ProductCard";
+import { fetchProducts } from "@/data/fetchProducts";
 import { useFilterStore } from "@/store/useFilter.store";
 import { usePaginationStore } from "@/store/usePagination.store";
 import { Product } from "@/utils/data.types";
-import { useDisclosure } from "@nextui-org/modal";
 import { Pagination } from "@nextui-org/pagination";
 import { Spinner } from "@nextui-org/spinner";
-import {
-  useSuspenseQuery,
-} from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
+
+type ResponseData = { data: Product[]; meta: { totalPages: number } };
 
 export function DashboardContent() {
   // Filters
@@ -21,44 +21,19 @@ export function DashboardContent() {
   const setTotalPages = usePaginationStore.use.setTotalPages();
   const totalPages = usePaginationStore.use.totalPages();
   const setPage = usePaginationStore.use.setPage();
-  // Fetch function
-
-  const fetchProducts = async (
-    page: number,
-    increased: boolean,
-    discountValue: boolean,
-    searchValue: string
-  ) => {
-    return fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/products?${
-        page && `page=${page}`
-      }${discountValue ? `&p=true` : ""}${increased ? `&inc=true` : ""}${
-        searchValue ? `&q=${searchValue.trim()}` : ""
-      }`
-    ).then((response) => response.json());
-  };
 
   // Query info
-  const queryResult = useSuspenseQuery<
-    any,
-    any,
-    { data: Product[]; meta: { totalPages: number } }
-  >({
+  const { isPending, isError, error, data } = useQuery<any, any, ResponseData>({
     queryKey: ["products", page, increased, discountValue, searchValue],
     queryFn: () => fetchProducts(page, increased, discountValue, searchValue),
+    refetchOnWindowFocus: true,
   });
-  const { isPending, isError, error, data } = queryResult;
-
-  /// Observer
 
   useEffect(() => {
-    return () => {
+    if (data) {
       setTotalPages(data.meta.totalPages);
-    };
+    }
   }, [data]);
-
-  // Modal operations
-  const { isOpen, onClose } = useDisclosure();
 
   if (isPending) {
     return (
@@ -76,8 +51,6 @@ export function DashboardContent() {
     );
   }
 
-  // Here we know the totalPages of the operation
-
   return (
     <>
       <main className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-4 place-items-stretch justify-items-center">
@@ -88,14 +61,11 @@ export function DashboardContent() {
       <footer className="flex justify-center">
         <Pagination
           total={totalPages}
-          initialPage={1}
+          initialPage={page || 1}
           aria-label="Paginas de productos"
           size="sm"
           className="dark"
-          onChange={(e) => {
-            console.log(e)
-            setPage(e)
-          }}
+          onChange={setPage}
         />
       </footer>
     </>
