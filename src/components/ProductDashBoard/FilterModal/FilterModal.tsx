@@ -81,6 +81,8 @@ export function FilterModal({ isOpen, onClose }: FilterModalProps) {
             selectedKeys={[supermarketValue]}
             // @ts-expect-error expect error that i dont know how it works but works :)
             onSelectionChange={(e: {currentKey: number}) => {
+              resetPagination()
+              resetPagination()
               return setSupermarketValue(e.currentKey);
             }}
           >
