@@ -6,15 +6,18 @@ const initialState = {
   discountValue: false,
   increased: false,
   searchValue: "",
+  supermarket: 0,
 };
 
 type FilterState = {
   discountValue: boolean;
   increased: boolean;
   searchValue: string;
+  supermarket: number;
   setDiscountValue: (value: boolean) => void;
   setIncreased: (value: boolean) => void;
   setSearchValue: (value: string) => void;
+  setSupermarketValue: (value: number) => void;
   reset: () => void;
 };
 
@@ -25,9 +28,11 @@ export const useFilterStore = createSelectors(
         discountValue: false,
         increased: false,
         searchValue: "",
+        supermarket: 0,
         setDiscountValue: (value) => set(() => ({ discountValue: value })),
         setIncreased: (value) => set(() => ({ increased: value })),
         setSearchValue: (value) => set(() => ({ searchValue: value })),
+        setSupermarketValue: (value) => set(() => ({ supermarket: value })),
         reset: () => {
           set(initialState);
         },
@@ -37,6 +42,7 @@ export const useFilterStore = createSelectors(
           discountValue: "/busqueda" === pathname,
           increased: "/busqueda" === pathname,
           searchValue: "/busqueda" === pathname,
+          supermarket: "/busqueda" === pathname,
         }),
       }
     )

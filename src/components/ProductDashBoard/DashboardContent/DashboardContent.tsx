@@ -15,6 +15,7 @@ export function DashboardContent() {
   const increased = useFilterStore.use.increased();
   const searchValue = useFilterStore.use.searchValue();
   const discountValue = useFilterStore.use.discountValue();
+  const supermarketValue = useFilterStore.use.supermarket();
 
   // Pagination
   const page = usePaginationStore.use.page();
@@ -24,8 +25,22 @@ export function DashboardContent() {
 
   // Query info
   const { isPending, isError, error, data } = useQuery<any, any, ResponseData>({
-    queryKey: ["products", page, increased, discountValue, searchValue],
-    queryFn: () => fetchProducts(page, increased, discountValue, searchValue),
+    queryKey: [
+      "products",
+      page,
+      increased,
+      discountValue,
+      searchValue,
+      supermarketValue,
+    ],
+    queryFn: () =>
+      fetchProducts(
+        page,
+        increased,
+        discountValue,
+        searchValue,
+        String(supermarketValue)
+      ),
     refetchOnWindowFocus: true,
   });
 
