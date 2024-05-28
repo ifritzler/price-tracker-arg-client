@@ -1,25 +1,31 @@
 "use client";
 import { useFilterStore } from "@/store/useFilter.store";
+import { usePaginationStore } from "@/store/usePagination.store";
 import { Input } from "@nextui-org/react";
 import { usePathname, useRouter } from "next/navigation";
 import { FormEvent, useRef } from "react";
 import { IoIosSearch } from "react-icons/io";
 
 export function SearchBar() {
-  const inputRef = useRef<HTMLInputElement>(null)
-  const pathname = usePathname()
-  const router = useRouter()
+  const inputRef = useRef<HTMLInputElement>(null);
+  const pathname = usePathname();
+  const router = useRouter();
 
-  const setSearchValue = useFilterStore.use.setSearchValue()
+  const setSearchValue = useFilterStore.use.setSearchValue();
+  const resetFilterStore = useFilterStore.use.reset();
+  const resetPaginationStore = usePaginationStore.use.reset();
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     e.stopPropagation();
-    if(pathname !== '/busqueda') {
-      router.push('/busqueda')
+    if (pathname !== "/busqueda") {
+      router.push("/busqueda");
     }
-    setSearchValue(inputRef.current?.value || "")
-    if(inputRef.current) {
-      inputRef.current.value = ''
+    resetFilterStore();
+    resetPaginationStore();
+    setSearchValue(inputRef.current?.value || "");
+    if (inputRef.current) {
+      inputRef.current.value = "";
     }
   };
 
@@ -39,8 +45,10 @@ export function SearchBar() {
         type="search"
         name="search"
         ref={inputRef}
+        onClear={() => {
+          setSearchValue("");
+        }}
       />
     </form>
   );
 }
-
