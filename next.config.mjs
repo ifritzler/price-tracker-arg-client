@@ -9,7 +9,11 @@ const nextConfig = {
           {
             protocol: 'https',
             hostname: 'carrefourar.vtexassets.com'
-          }
+          },
+          {
+            protocol: 'https',
+            hostname: 'jumboargentina.vteximg.com.br'
+          },
         ],
       },
 };
