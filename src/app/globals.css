@@ -10,6 +10,7 @@
   --color-discount: #D10000;
   --color-text-disabled: #727272;
   --color-primary: #2A39BB;
+  --background-color-graph: #FBFBFB;
   
   --max-card-with: 300px;
 }
@@ -20,6 +21,7 @@
     --background-end-rgb: 0, 0, 0;
     
     --color-primary: #511fdb;
+    --background-color-graph: #2a2a41;
     --background-card: #121214;
     --color-discount: #FF3F3F;
     --color-text-disabled: #DADADA;
